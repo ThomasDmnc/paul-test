@@ -4,7 +4,7 @@ const object = {
     "colors": ["Blue", "Green", "Orange", "Yellow"]
 }
 
-function findValue(searchValue, ObjectToSearch) {
+function findKeyOfValue(searchValue, ObjectToSearch) {
     const resultKey = [];
     const iterable = Object.keys(ObjectToSearch).map((entry) => { 
         if (object[entry].includes(searchValue)){
@@ -17,7 +17,7 @@ function findValue(searchValue, ObjectToSearch) {
     return resultKey
 }
 
-findValue("Test", object)
+findKeyOfValue("Test", object)
 
 /*
     This could have been done with a for..of loop to iterate other an array of arrays (created through Object.entries(object))
