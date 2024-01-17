@@ -24,6 +24,18 @@ function anagramString(string){
     return result
 }
 
+function isAnagram(string1, string2){
+    let result = false;
+    const wordRegex = /[a-z]/g;
+    const splitedString1 = string1.toLowerCase().match(wordRegex).toSorted().join('');
+    const splitedString2 = string2.toLowerCase().match(wordRegex).toSorted().join('');
+
+    if (splitedString1 === splitedString2){
+        result = true;
+    }
+    return result
+}
+
 /*
     The primary function only takes an array of strings as argument, otherwise it won't work.
     If a string input doesn't include a "-" character, the function will return automatically false.
