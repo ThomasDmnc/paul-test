@@ -4,15 +4,27 @@ class Node {
         this.right = (right === undefined ? null : right);
         this.left = (left === undefined ? null : left);
     }
+}
 
-    reverse() {
-        const oldRight = this.right;
-        const oldLeft = this.left;
-        this.right = oldLeft;
-        this.left = oldRight;
-        return this
+function reverseNode(node) {
+    if (node == null) {
+        return null
     }
+        reverseNode(node.left);
+        reverseNode(node.right);
+        
+        let holdLeft = node.left;
+        node.left = node.right;
+        node.right = holdLeft;
+    return node;
+}
+
+function reverseTree(tree) {
+    return reverseNode(tree)
 }
 
 const inputNode = new Node('A', new Node('B','E','D'), new Node('C','F', null))
+reverseTree(inputNode);
 
+console.log(inputNode)
+console.log(reverseTree(inputNode))
